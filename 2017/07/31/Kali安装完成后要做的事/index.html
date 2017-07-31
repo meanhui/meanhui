@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://meanhui.github.io">
-  <title>Archives | Meanhui&#39;s blog</title>
+  <title>Kali安装完成后要做的事 | Meanhui&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一只渗透鶸">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Meanhui&#39;s blog">
-<meta property="og:url" content="https://meanhui.github.io/archives/index.html">
+  <meta name="description" content="安装完Kali后还要做的事">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kali安装完成后要做的事">
+<meta property="og:url" content="https://meanhui.github.io/2017/07/31/Kali安装完成后要做的事/index.html">
 <meta property="og:site_name" content="Meanhui&#39;s blog">
-<meta property="og:description" content="一只渗透鶸">
+<meta property="og:description" content="安装完Kali后还要做的事">
+<meta property="og:updated_time" content="2017-07-31T06:44:33.829Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Meanhui&#39;s blog">
-<meta name="twitter:description" content="一只渗透鶸">
+<meta name="twitter:title" content="Kali安装完成后要做的事">
+<meta name="twitter:description" content="安装完Kali后还要做的事">
   
     <link rel="alternative" href="/atom.xml" title="Meanhui&#39;s blog" type="application/atom+xml">
   
@@ -156,103 +157,192 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Kali安装完成后要做的事" class="article article-type-post " itemscope itemprop="blogPost">
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  <div class="article-inner">
+    
+      <header class="article-header">
+	
+        
   
+    <h1 class="article-title" itemprop="name">
+      Kali安装完成后要做的事
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/31/Kali安装完成后要做的事/" class="archive-article-date">
+
+        
+        <a href="/2017/07/31/Kali安装完成后要做的事/" class="archive-article-date">
   	<time datetime="2017-07-31T06:43:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/31/Kali安装完成后要做的事/">Kali安装完成后要做的事</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装完Kali后还要做的事<br><a id="more"></a></p>
+<h2 id="Kali-Linux安装完成后需要做的事"><a href="#Kali-Linux安装完成后需要做的事" class="headerlink" title="Kali Linux安装完成后需要做的事"></a><strong>Kali Linux安装完成后需要做的事</strong></h2><hr>
+<p>自从掉进信安坑后，Kali已经成为养家糊口必备的环境了。由于像我这样的鶸经常把自己机子搞崩，每次重装环境都是巨大的工程。装Kali虽然不难，但是后续种种配置还是挺费时间的，留一篇马克文。</p>
+<hr>
+<h4 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a><strong>1、安装</strong></h4><p><a href="http://www.linuxidc.com/Linux/2016-11/137594.htm" target="_blank" rel="external">安装过程</a></p>
+<h4 id="2、配置更新源"><a href="#2、配置更新源" class="headerlink" title="2、配置更新源"></a><strong>2、配置更新源</strong></h4><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">vim</span> /etc/apt/<span class="keyword">source</span>.<span class="keyword">list</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>deb <a href="http://http.kali.org/kali" target="_blank" rel="external">http://http.kali.org/kali</a> kali-rolling main non-free contrib</p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/kali" target="_blank" rel="external">http://mirrors.ustc.edu.cn/kali</a> kali-rolling main non-free contrib</p>
+<p>阿里云kali源 </p>
+<p>deb <a href="http://mirrors.aliyun.com/kali" target="_blank" rel="external">http://mirrors.aliyun.com/kali</a> kali-rolling main non-free contrib </p>
+<p>deb-src <a href="http://mirrors.aliyun.com/kali" target="_blank" rel="external">http://mirrors.aliyun.com/kali</a> kali-rolling main non-free<br>contrib </p>
+<p>deb <a href="http://mirrors.aliyun.com/kali-security" target="_blank" rel="external">http://mirrors.aliyun.com/kali-security</a> kali-rolling/updates main<br>contrib non-free </p>
+<p>deb-src <a href="http://mirrors.aliyun.com/kali-security" target="_blank" rel="external">http://mirrors.aliyun.com/kali-security</a> kali-rolling/updates<br>main contrib non-free </p>
+<p>中科大kali源 </p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/kali" target="_blank" rel="external">http://mirrors.ustc.edu.cn/kali</a> kali-rolling main non-free contrib</p>
+<p>deb-src <a href="http://mirrors.ustc.edu.cn/kali" target="_blank" rel="external">http://mirrors.ustc.edu.cn/kali</a> kali-rolling main non-free<br>contrib</p>
+<p>deb <a href="http://mirrors.ustc.edu.cn/kali-security" target="_blank" rel="external">http://mirrors.ustc.edu.cn/kali-security</a> kali-current/updates main<br>contrib non-free</p>
+<p>deb-src <a href="http://mirrors.ustc.edu.cn/kali-security" target="_blank" rel="external">http://mirrors.ustc.edu.cn/kali-security</a> kali-current/updates<br>main contrib non-free</p>
+</blockquote>
+<h4 id="3、安装Open-vmware-tools"><a href="#3、安装Open-vmware-tools" class="headerlink" title="3、安装Open vmware tools"></a><strong>3、安装Open vmware tools</strong></h4><p>Kali在2.0及之前的版本中VMware-tools均能正常安装并使用，但在最新的Kali 2016 rolling版本中，VMware-tools安装上之后不能正常使用，无法实现“自动适应客户机”（即自动适应客户机的分辨率，随意改变窗口大小）和与宿主机之间文件的拖拽功能。新版本kali需要安装open vmware tools</p>
+<blockquote>
+<p>执行apt-get update以同步源索引<br>执行apt-get install open-vm-tools-desktop fuse  一路默认<br>init 6 重启</p>
+</blockquote>
+<h4 id="4、更新、升级等操作"><a href="#4、更新、升级等操作" class="headerlink" title="4、更新、升级等操作"></a><strong>4、更新、升级等操作</strong></h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-<span class="builtin-name">get</span> clean &amp;&amp; apt-<span class="builtin-name">get</span> update &amp;&amp; apt-<span class="builtin-name">get</span><span class="built_in"> upgrade </span>-y &amp;&amp; apt-<span class="builtin-name">get</span> dist-upgrade -y</div></pre></td></tr></table></figure>
+<h4 id="5、网络配置"><a href="#5、网络配置" class="headerlink" title="5、网络配置"></a><strong>5、网络配置</strong></h4><p><strong>IP,网关：</strong>编辑/etc/network下的interface文件，可以配置静态ip、网关等项目</p>
+<p><strong>DNS配置：</strong> Kali Linux的DNS服务器地址使用文件“/etc/resovl.conf”进行配置，用户可以通过“nameserver”配置项设置DNS服务器的 IP地址；“resolv.conf”文件中最多可以使用<br>“nameserver”指定３个DNS服务器，按照先后的顺序，一旦前面的DNS服务器失效，系统将自动使用后面的DNS服务器。<br>      对于“resolv.conf”文件设置“nameserver”的修改是即时生效的，即只要对“resolv.conf”文件的修改进行了保存，在系统下一次需要进行域名的解析时就会按照该文件中指定的DNS服务器IP地址进行域名的解析。<br>在resolv.conf中的格式如下：</p>
+<p>domain<br>nameserver 10.10.10.10<br>nameserver 102.54.16.2</p>
+<p>配置完成后，在终端里边重启网络 <code>etc/init.d/networking restart</code></p>
+<h4 id="6、安装JAVA"><a href="#6、安装JAVA" class="headerlink" title="6、安装JAVA"></a><strong>6、安装JAVA</strong></h4><p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">下载地址</a></p>
+<p>解压：<code>tar zxvf jdk-8u77-linux-x64.tar.gz</code><br>拷贝至opt目录下：<code>mv jdk1.8.0_77/ /opt</code><br>安装和注册：</p>
+<blockquote>
+<p>update-alternatives –install /usr/bin/java java /opt/jdk1.8.0_77/bin/java 1</p>
+<p>update-alternatives –install /usr/bin/javac javac /opt/jdk1.8.0_77/bin/javac 1</p>
+<p>update-alternatives –install /usr/lib/mozilla/plugins/libjavaplugin.so mozilla-javaplugin.so /opt/jdk1.8.0_77/jre/lib/amd64/libnpjp2.so 1</p>
+<p>update-alternatives –set java /opt/jdk1.8.0_77/bin/java</p>
+<p>update-alternatives –set javac /opt/jdk1.8.0_77/bin/javac</p>
+<p>update-alternatives –set mozilla-javaplugin.so /opt/jdk1.8.0_77/jre/lib/amd64/libnpjp2.so</p>
+</blockquote>
+<p>验证是否安装成功：<code>java -version</code></p>
+<h4 id="7、安装中文输入法"><a href="#7、安装中文输入法" class="headerlink" title="7、安装中文输入法"></a><strong>7、安装中文输入法</strong></h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-<span class="builtin-name">get</span> install fcitx-googlepinyin</div></pre></td></tr></table></figure>
+<p>重启</p>
+<h4 id="8、安装flash-player"><a href="#8、安装flash-player" class="headerlink" title="8、安装flash player"></a><strong>8、安装flash player</strong></h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get <span class="keyword">install</span> flashplugin-nonfree</div><div class="line"><span class="keyword">update</span>-flashplugin-nonfree <span class="comment">--install</span></div></pre></td></tr></table></figure>
+<p>重启</p>
+<h4 id="9、卸载软件"><a href="#9、卸载软件" class="headerlink" title="9、卸载软件"></a><strong>9、卸载软件</strong></h4><p>kali中主要为2种卸载方法：<br>1.apt<br>2.dpkg</p>
+<p>使用apt的方式有：<br>apt-get remove [package]<br>apt-get remove –purge # ——(package 删除包，包括删除配置文件等)<br>apt-get autoremove –purge # —-(package 删除包及其依赖的软件包+配置文件等</p>
+<p>使用dpkg<br>dpkg -r     #移除一个已安装的包。<br>dpkg -P    #完全清除一个已安装的包。和 remove 不同的是，remove 只是删掉数据和可执行文件，purge 另外还删除所有的配制文件。</p>
+<h4 id="10、字体"><a href="#10、字体" class="headerlink" title="10、字体"></a><strong>10、字体</strong></h4><p>安装gnome-tweak-tool</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">aptitude <span class="keyword">install</span> gnome-tweak-tool</div></pre></td></tr></table></figure>
+<p>命令行调用<code>gnome-tweak-tool</code></p>
+<h4 id="下次再补充。。。。"><a href="#下次再补充。。。。" class="headerlink" title="下次再补充。。。。"></a><strong>下次再补充。。。。</strong></h4>
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://meanhui.github.io/2017/07/31/Kali安装完成后要做的事/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/31/hexo-github搭建自己的博客/" class="archive-article-date">
-  	<time datetime="2017-07-31T02:27:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/31/hexo-github搭建自己的博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo+github搭建自己的博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/31/hexo-github搭建自己的博客/">hexo+github搭建自己的博客</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/28/title/" class="archive-article-date">
-  	<time datetime="2017-07-28T07:07:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/28/title/">新文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+  	<!-- UY BEGIN -->
+		<div id="uyan_frame"></div>
+		<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2140216"></script>
+	<!-- UY END -->
   
   
-    </div></section>
   
-
-    
+<div style="font-size:10px;"><p>本文阅读<span id="busuanzi_value_page_pv"></span>次</p></div>
+  
 
 
           </div>
@@ -280,8 +370,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
