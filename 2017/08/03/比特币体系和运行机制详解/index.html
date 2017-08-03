@@ -21,8 +21,10 @@
 <meta property="og:image" content="http://chuantu.biz/t5/158/1501745187x2104971436.jpg">
 <meta property="og:image" content="http://chuantu.biz/t5/158/1501745444x2104971436.jpg">
 <meta property="og:image" content="http://chuantu.biz/t5/158/1501745583x2104971436.png">
+<meta property="og:image" content="http://chuantu.biz/t5/158/1501750743x2104971436.jpg">
+<meta property="og:image" content="http://chuantu.biz/t5/158/1501751118x2104971436.jpg">
 <meta property="og:image" content="http://chuantu.biz/t5/158/1501747665x2104971436.jpg">
-<meta property="og:updated_time" content="2017-08-03T08:41:36.798Z">
+<meta property="og:updated_time" content="2017-08-03T09:06:30.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="比特币体系和运行机制详解">
 <meta name="twitter:description" content="全手工码字，比特币体系和运行机制详解。长文，带图">
@@ -201,11 +203,11 @@
 <hr>
 <p>实际上，比特币交易中的所有权是通过<strong>历史交易</strong>来核实的，而不是余额(没有这个设定)。Alice必须援引以前所有交易记录来推导计算，核实账户上有无这么多钱，其他人也一样。比特币的所有权就是通过交易记录的链条进行传递，比特币软件首次安装时会下载自比特币诞生起的交易记录，并验证合法性，一直验证到第一笔交易(会花费很长时间，但一劳永逸)。所以你可以随时创建新的公私钥对，只要用的时候写对就好了，可以看出比特币系统的匿名特性非常强。比特币潜在地址数量大约有2^160个。<br><img src="http://chuantu.biz/t5/158/1501743583x2104971436.jpg" alt="某土豪交易记录"><br>之前说了，账户就是公私钥对信息，因此如果你丢失了私钥，与之对应的公钥相关的货币就会永远消失。人们可能因为硬盘崩溃或备份不足而丢失密钥，意味着比特币会成为一种<strong>通货紧缩</strong>的货币。</p>
 <hr>
-<h5 id="三、区块和挖矿"><a href="#三、区块和挖矿" class="headerlink" title="三、区块和挖矿"></a><strong>三、区块和挖矿</strong></h5><p>为了防止双重消费问题(double spending fraud,由于交易顺序和节点传递顺序等原因导致前一笔交易晚于后一笔交易到达节点，可能被攻击者伪造利用)，需要整个网络对交易的顺序达成一致，这是去中心化的系统要面对的难题。看一看比特币是怎么解决的。<br>在比特币系统中，将交易按组进行分配达到排序的目的，这样的组被称为<strong>区块（block）</strong>。区块结构如下：<br><img src="http://chuantu.biz/t5/158/1501745133x2104971436.jpg" alt="区块结构"><br>数据区块头部结构中记录了：版本号、前一个区块的记录、Merkle树的根值、时间戳、目标特征值、随机数。Merkle树的根值为该区块中所有被记录交易的根节点HASH值，中本聪用一个HASH树来对每一比交易进行数字签名，以确保每一比交易都不可伪造和没有重复交易，Merkle树就是HASH树的一种。区块头的结构如下：<br><img src="http://chuantu.biz/t5/158/1501745187x2104971436.jpg" alt="区块头结构"><br>数据区块的交易记录中，详细记载了比特币的交易记录和相关细节。其中在比特币收支详情里面，记录了收支的比特币地址和merkle节点值等情况，因此收支详情是交易记录中最重要的部分。交易记录的结构如下：<br><img src="http://chuantu.biz/t5/158/1501745444x2104971436.jpg" alt="交易记录结构"><br>用HASH值将区块相连，就成了<strong>区块链</strong>：<br><img src="http://chuantu.biz/t5/158/1501745583x2104971436.png" alt="区块链"><br>每个区块援引前一个区块，按照时间顺序来排列，可以反向追踪至第一笔交易（这就保护了区块安全，攻击者伪造区块的难度极高）。同一区块内的交易应是同一时刻发生的，未在区块内的交易被称为未确认交易。任何节点都可以将未确认交易放入区块，然后向网络中广播。鉴于同一时刻可能有多个新区块生成，所以网络中需要决定下一有效区块。<br>比特币的一部分解决方法是这样：每个有效区块需要包括一个特殊数学问题的答案，计算块内整个文本和随机数X的HASH值，直到低于某个特定值。所谓挖矿，就是计算的过程：</p>
+<h5 id="三、区块和挖矿"><a href="#三、区块和挖矿" class="headerlink" title="三、区块和挖矿"></a><strong>三、区块和挖矿</strong></h5><p>为了防止双重消费问题(double spending fraud,由于交易顺序和节点传递顺序等原因导致前一笔交易晚于后一笔交易到达节点，可能被攻击者伪造利用)，需要整个网络对交易的顺序达成一致，这是去中心化的系统要面对的难题。看一看比特币是怎么解决的。<br>在比特币系统中，将交易按组进行分配以达到排序的目的，这样的组被称为<strong>区块（block）</strong>。区块结构如下：<br><img src="http://chuantu.biz/t5/158/1501745133x2104971436.jpg" alt="区块结构"><br>数据区块头部结构中记录了：版本号、前一个区块的记录、Merkle树的根值、时间戳、目标特征值、随机数。Merkle树的根值为该区块中所有被记录交易的根节点HASH值，中本聪用一个HASH树来对每一笔交易进行数字签名，以确保每一比交易都不可伪造和没有重复交易，Merkle树就是HASH树的一种。区块头的结构如下：<br><img src="http://chuantu.biz/t5/158/1501745187x2104971436.jpg" alt="区块头结构"><br>数据区块的交易记录中，详细记载了比特币的交易记录和相关细节。其中在比特币收支详情里面，记录了收支的比特币地址和merkle节点值等情况，因此收支详情是交易记录中最重要的部分。交易记录的结构如下：<br><img src="http://chuantu.biz/t5/158/1501745444x2104971436.jpg" alt="交易记录结构"><br>用HASH值将区块相连，就成了<strong>区块链</strong>：<br><img src="http://chuantu.biz/t5/158/1501745583x2104971436.png" alt="区块链"><br>每个区块援引前一个区块，按照时间顺序来排列，可以反向追踪至第一笔交易（这就保护了区块安全，攻击者伪造区块的难度极高）。同一区块内的交易应是同一时刻发生的，未在区块内的交易被称为未确认交易。任何节点都可以将未确认交易放入区块，然后向网络中广播。鉴于同一时刻可能有多个新区块生成，所以网络中需要决定下一有效区块。<br><img src="http://chuantu.biz/t5/158/1501750743x2104971436.jpg" alt="计算"><br>所谓挖矿，就是尝试计算下一区块的过程：</p>
 <blockquote>
 <p>block的版本 version<br>上一个block的hash值: prev_hash<br>需要写入的交易记录的hash树的值:merkle_root<br>更新时间: ntime<br>当前难度: nbits<br>计算：<br><code>SHA256(SHA256(version + prev_hash + merkle_root + ntime + nbits + x )) &lt; TARGET</code></p>
 </blockquote>
-<p>上式的x的范围是0~2^32, TARGET可以根据当前难度求出的，难度由系统根据新区块产生速度自动调整(每2016块调整一次)。由于hash的特性，找这样一个x只能暴力搜索。一旦你找到了x，你就可以广播一个新的block，其他客户端会验证你的block是否合法。如果你的block被接受，这个block将会排在区块链的下一位。若有两个人都解处了答案，会短暂地形成分支。当再下一区块被解出时，这种分支就被打破，因为必须切换到最长的分支才能继续计算，短分支将不被承认。SHA256的特性导致两个人同时解出答案是几乎不可能的，更不可能接连发生几次。系统会给予解出答案者一定比特币的奖励（这就是被称为”挖矿”的原因），奖励每隔4年减半，2009年是50个，直到比特币总数为2100万时停止发放。<strong>奖励是唯一一种产生（或者发行）比特币的方式。</strong><br>所以挖矿就是计算力水平的竞赛，计算能力越大越有可能得到奖励。目前单一计算机需要数年时间才能算出一个新区块，因此挖矿行为主要集中于”矿场”进行（大量使用高性能GPU的计算机），矿场耗电十分惊人，一个大矿场每月耗电费用以百万美元计。<br><img src="http://chuantu.biz/t5/158/1501747665x2104971436.jpg" alt="矿场"><br>当然，挖矿的机器越多，相应的难度会调整的越大，单一机器挖到的概率越低。最初只要用个人PC就可以得到大量比特币，然而现在。。。GG</p>
+<p>上式的x的范围是0~2^32, TARGET可以根据当前难度求出的，难度由系统根据新区块产生速度自动调整(每2016块调整一次)。由于hash的特性，找这样一个x只能暴力搜索。一旦你找到了x，你就可以广播一个新的block，其他客户端会验证你的block是否合法。如果你的block被接受，这个block将会排在区块链的下一位。<br><img src="http://chuantu.biz/t5/158/1501751118x2104971436.jpg" alt="下一块"><br>若有两个人都解出了答案，会短暂地形成分支。当再下一区块被解出时，这种分支就被打破，因为必须切换到最长的分支才能继续计算，短分支将不被承认。SHA256的特性导致两个人同时解出答案是几乎不可能的，更不可能接连发生几次。系统会给予解出答案者一定比特币的奖励（这就是被称为”挖矿”的原因），奖励每隔4年减半，2009年是50个，直到比特币总数为2100万时停止发放。<strong>奖励是唯一一种产生（或者发行）比特币的方式。</strong><br>所以挖矿就是计算力水平的竞赛，计算能力越大越有可能得到奖励。目前单一计算机需要数年时间才能算出一个新区块，因此挖矿行为主要集中于”矿场”进行（大量使用高性能GPU的计算机），矿场耗电十分惊人，一个大矿场每月耗电费用以百万美元计。<br><img src="http://chuantu.biz/t5/158/1501747665x2104971436.jpg" alt="矿场"><br>当然，挖矿的机器越多，相应的难度会调整的越大，单一机器挖到的概率越低。最初只要用个人PC就可以得到大量比特币，然而现在。。。GG</p>
 <hr>
 <h5 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a><strong>四、总结</strong></h5><p>概括起来，比特币是一种基于数学保护的、基于P2P协议的数字货币。数字签名用来授权每笔交易，所有权通过交易链来传递，并在区块链中收到保护，挖矿是唯一得到新比特币的途径。<br>比特币有很多优点，比如不收到政府干预、匿名、低交易费等；同时也有很多硬伤，目前比特币很难兑换成法定货币、有可能被政府取缔、没有黄金储备作为支持体系可能崩溃等。<br>鉴于目前比特币的情况，挖矿还是有很大利益的。但是作为吃瓜群众，想通过个人PC挖矿赚取比特币，确实不太现实。</p>
 <p><strong>参考资料</strong></p>
@@ -433,11 +435,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color1">Kali linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">比特币</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -445,11 +451,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Kali linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">比特币</a>
               </li>
             
             <div class="clearfix"></div>
