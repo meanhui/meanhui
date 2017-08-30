@@ -6,17 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://meanhui.github.io">
-  <title>Archives | Meanhui&#39;s blog</title>
+  <title>内存取证工具volatility的使用 | Meanhui&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一只渗透鶸">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Meanhui&#39;s blog">
-<meta property="og:url" content="https://meanhui.github.io/archives/index.html">
+  <meta name="description" content="围观取证大法">
+<meta name="keywords" content="Kali linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内存取证工具volatility的使用">
+<meta property="og:url" content="https://meanhui.github.io/2017/08/30/volatility/index.html">
 <meta property="og:site_name" content="Meanhui&#39;s blog">
-<meta property="og:description" content="一只渗透鶸">
+<meta property="og:description" content="围观取证大法">
+<meta property="og:image" content="http://chuantu.biz/t6/28/1504074418x605609523.jpg">
+<meta property="og:image" content="http://chuantu.biz/t6/28/1504072382x605609523.png">
+<meta property="og:image" content="http://chuantu.biz/t6/28/1504072688x605609523.png">
+<meta property="og:image" content="http://chuantu.biz/t6/28/1504073536x605609523.png">
+<meta property="og:image" content="http://chuantu.biz/t6/28/1504074501x605609523.jpg">
+<meta property="og:image" content="http://chuantu.biz/t6/28/1504074632x605609523.jpg">
+<meta property="og:image" content="http://chuantu.biz/t6/28/1504074763x2890191685.jpg">
+<meta property="og:image" content="http://chuantu.biz/t6/28/1504074959x2890191685.jpg">
+<meta property="og:image" content="http://chuantu.biz/t6/28/1504075059x605609523.jpg">
+<meta property="og:updated_time" content="2017-08-30T07:18:34.016Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Meanhui&#39;s blog">
-<meta name="twitter:description" content="一只渗透鶸">
+<meta name="twitter:title" content="内存取证工具volatility的使用">
+<meta name="twitter:description" content="围观取证大法">
+<meta name="twitter:image" content="http://chuantu.biz/t6/28/1504074418x605609523.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Meanhui&#39;s blog" type="application/atom+xml">
   
@@ -156,36 +168,99 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-volatility" class="article article-type-post " itemscope itemprop="blogPost">
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  <div class="article-inner">
+    
+      <header class="article-header">
+	
+        
   
+    <h1 class="article-title" itemprop="name">
+      内存取证工具volatility的使用
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/30/volatility/" class="archive-article-date">
+
+        
+        <a href="/2017/08/30/volatility/" class="archive-article-date">
   	<time datetime="2017-08-30T07:13:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-30</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/30/volatility/">内存取证工具volatility的使用</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>围观取证大法<br><a id="more"></a></p>
+<h2 id="内存取证工具volatility的使用"><a href="#内存取证工具volatility的使用" class="headerlink" title="内存取证工具volatility的使用"></a><strong>内存取证工具volatility的使用</strong></h2><p>Volatility 是一款GNU开源框架，使用Python 语言编写而成的内存取证工具集，可以分析内存中的各种数据。Volatility 支持对32位或64位Wnidows 、Linux 、Mac 、Android 操作系统的RAM （随机存储器）数据进行提取与分析。</p>
+<hr>
+<h4 id="0x01-安装"><a href="#0x01-安装" class="headerlink" title="0x01  安装"></a><strong>0x01  安装</strong></h4><p> <strong>下载</strong><br> Mac,Liunx,Windows的<a href="https://github.com/volatilityfoundation/volatility/releases" target="_blank" rel="external">Release</a>都可以直接在gayhub上找到，也有相关源码</p>
+<blockquote>
+<p>git clone <a href="https://github.com/volatilityfoundation/volatility.git" target="_blank" rel="external">https://github.com/volatilityfoundation/volatility.git</a></p>
+</blockquote>
+<p>Kali里面自带有这个工具（应用程序→数字取证）<br>Windows和其他Linux需要先装Python和相关依赖包</p>
+<p><strong>依赖的Python库</strong></p>
+<p> 反编译库Distorm3</p>
+<pre><code>pip install distorm3
+</code></pre><p>恶意软件分类Yara</p>
+<pre><code>pip install yara
+</code></pre><p>图像处理PIL</p>
+<pre><code>pip install pil
+</code></pre><p>json解析</p>
+<pre><code>pip install ujson
+</code></pre><h4 id="0x02-使用"><a href="#0x02-使用" class="headerlink" title="0x02  使用"></a><strong>0x02  使用</strong></h4><p>我在kali 2016.2上演示一波</p>
+<p><strong>首先做一个内存镜像</strong><br><img src="http://chuantu.biz/t6/28/1504074418x605609523.jpg" alt="演示系统"><br>这个是演示系统<br>我用<a href="http://www.moonsols.com/" target="_blank" rel="external">MoonSols</a>工具包处理了虚拟机的vmem虚拟内存文件，得到后缀.dmp的dump file。实际上volatility可以直接分析vmem文件，如果取证对象是虚拟机的话就不用dump了。<br><img src="http://chuantu.biz/t6/28/1504072382x605609523.png" alt="dmp"></p>
+<p>或者用DumpIt工具可以一键生成当前系统内存镜像，以.raw为后缀，拷贝了内存的每一个bit<br><img src="http://chuantu.biz/t6/28/1504072688x605609523.png" alt="dumpit"></p>
+<p><strong>基本命令</strong></p>
+<p>volatility的基本语法</p>
+<pre><code>volatility ‐f [image] ­‐profile=[profile] [plugin]
+</code></pre><p>volatility自带有各个windows版本的profile，Linux的需要自己做，好像有点麻烦。。。直接去gayhub下吧</p>
+<pre><code>https://github.com/KDPryor/LinuxVolProfiles
+</code></pre><p>在kali下位置放在/usr/share/volatility/volatility/plugins/overlays/</p>
+<p>——————————————手动分割——————————————</p>
+<p>刚拿到镜像先判断一下系统类型，以选择合适的profile</p>
+<pre><code>volatility -f demo.bmp imageinfo
+</code></pre><p><img src="http://chuantu.biz/t6/28/1504073536x605609523.png" alt="imageinfo"><br>可以看到一些分析信息，操作系统版本是WinXP 32位，建议使用的Profile是WinXPSP2x86,WinXPSP3x86<br>页目录表基地址（DTB ）为0x342000L<br>内核调试器（KDBG ）的地址为0x80546ae0L<br>CPU个数为1<br>CPU 0的内核处理器控制区域（KPCR ）地址为0xffdff000L<br>内核和用户空间的共享内存区（KUSER_SHARED_DATA）的起始地址为0xffdf0000L<br>Image local date time表明内存镜像文件创建的时间</p>
+<p><strong>使用不同plugin</strong></p>
+<p>选择合适的Profile后就可以使用Plugin分析内存镜像了<br><code>volatility --info</code>命令可以查看已有的plugin和功能</p>
+<blockquote>
+<p><a href="https://github.com/volatilityfoundation/volatility" target="_blank" rel="external">https://github.com/volatilityfoundation/volatility</a></p>
+</blockquote>
+<p>我随便试几个</p>
+<blockquote>
+<p>volatility -f demo.dmp profile=WinXPSP3x86 clipboard   查看粘贴板</p>
+</blockquote>
+<p><img src="http://chuantu.biz/t6/28/1504074501x605609523.jpg" alt="clipboard"></p>
+<blockquote>
+<p>volatility -f demo.dmp profile=WinXPSP3x86 cmdscan    用户命令行历史</p>
+</blockquote>
+<p><img src="http://chuantu.biz/t6/28/1504074632x605609523.jpg" alt="cmdscan"></p>
+<blockquote>
+<p>volatility -f demo.dmp profile=WinXPSP3x86 cmdline  进程使用的命令行参数</p>
+</blockquote>
+<p><img src="http://chuantu.biz/t6/28/1504074763x2890191685.jpg" alt="cmdline"></p>
+<blockquote>
+<p>volatility -f demo.dmp profile=WinXPSP3x86 connscan   TCP连接池</p>
+</blockquote>
+<p><img src="http://chuantu.biz/t6/28/1504074959x2890191685.jpg" alt="connscan"></p>
+<blockquote>
+<p>volatility -f demo.dmp profile=WinXPSP3x86 pslist    进程列表</p>
+</blockquote>
+<p><img src="http://chuantu.biz/t6/28/1504075059x605609523.jpg" alt="pslist"></p>
+<blockquote>
+<p>volatility -f demo.dmp profile=WinXPSP3x86 dlllist -h [进程名]    可以查看进程已加载的dll文件</p>
+</blockquote>
+<p>hivelist、hivescan可以分析注册表信息<br>……<br>插件有很多，功能很强大，好像系统登录口令、SSL keys都可以搞到……</p>
+<hr>
+<h4 id="0x03-总结"><a href="#0x03-总结" class="headerlink" title="0x03  总结"></a><strong>0x03  总结</strong></h4><p>这货的功能比想象的要强大的多，你在电脑上做的一切动作都将成为呈堂证供→.→我信息安全学科的水是真的深</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,312 +272,111 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://meanhui.github.io/2017/08/30/volatility/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/19/Netconcept/" class="archive-article-date">
-  	<time datetime="2017-08-19T14:55:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/19/Netconcept/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一些网络拓补里面的概念</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/19/Netconcept/">一些网络拓补里面的概念</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杂七杂八</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/03/比特币体系和运行机制详解/" class="archive-article-date">
-  	<time datetime="2017-08-03T08:36:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/03/比特币体系和运行机制详解/">比特币体系和运行机制详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">比特币</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/31/测试工程师/" class="archive-article-date">
-  	<time datetime="2017-07-31T07:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/31/测试工程师/">讲一个测试工程师的段子</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">说个段子</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/31/Kali安装完成后要做的事/" class="archive-article-date">
-  	<time datetime="2017-07-31T06:43:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/31/Kali安装完成后要做的事/">Kali 2016安装完成后要做的事</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Kali linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/31/hexo-github搭建自己的博客/" class="archive-article-date">
-  	<time datetime="2017-07-31T02:27:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/31/hexo-github搭建自己的博客/">hexo+github搭建自己的博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/30/孔乙己/" class="archive-article-date">
-  	<time datetime="2017-07-30T11:10:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/30/孔乙己/">孔乙己C++版</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">说个段子</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/30/使用git上传项目至github/" class="archive-article-date">
-  	<time datetime="2017-07-30T08:54:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/30/使用git上传项目至github/">使用git上传项目至github</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/28/title/" class="archive-article-date">
-  	<time datetime="2017-07-28T07:07:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/28/title/">新文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+  	<!-- UY BEGIN -->
+		<div id="uyan_frame"></div>
+		<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2140216"></script>
+	<!-- UY END -->
   
   
-    </div></section>
   
-
-    
+<div style="font-size:10px;"><p>本文阅读<span id="busuanzi_value_page_pv"></span>次</p></div>
+  
 
 
           </div>
@@ -530,8 +404,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
