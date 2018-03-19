@@ -6,26 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://meanhui.github.io">
-  <title>使用git上传项目至github | Meanhui&#39;s blog</title>
+  <title>Archives: 2018 | Meanhui&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用git上传项目至Gayhub？">
-<meta name="keywords" content="git">
-<meta property="og:type" content="article">
-<meta property="og:title" content="使用git上传项目至github">
-<meta property="og:url" content="https://meanhui.github.io/2017/07/30/使用git上传项目至github/index.html">
+  <meta name="description" content="一只鶸">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Meanhui&#39;s blog">
+<meta property="og:url" content="https://meanhui.github.io/archives/2018/index.html">
 <meta property="og:site_name" content="Meanhui&#39;s blog">
-<meta property="og:description" content="使用git上传项目至Gayhub？">
-<meta property="og:image" content="http://chuantu.biz/t5/156/1501489701x2105037143.jpg">
-<meta property="og:image" content="http://chuantu.biz/t5/156/1501490268x2105037143.jpg">
-<meta property="og:image" content="http://chuantu.biz/t5/156/1501490290x2105037143.jpg">
-<meta property="og:image" content="http://chuantu.biz/t5/156/1501490313x2105037143.jpg">
-<meta property="og:image" content="http://chuantu.biz/t5/156/1501490804x2105037143.jpg">
-<meta property="og:image" content="http://chuantu.biz/t5/156/1501491161x2105037143.png">
-<meta property="og:updated_time" content="2017-07-31T08:56:02.711Z">
+<meta property="og:description" content="一只鶸">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用git上传项目至github">
-<meta name="twitter:description" content="使用git上传项目至Gayhub？">
-<meta name="twitter:image" content="http://chuantu.biz/t5/156/1501489701x2105037143.jpg">
+<meta name="twitter:title" content="Meanhui&#39;s blog">
+<meta name="twitter:description" content="一只鶸">
   
     <link rel="alternative" href="/atom.xml" title="Meanhui&#39;s blog" type="application/atom+xml">
   
@@ -165,188 +156,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-使用git上传项目至github" class="article article-type-post " itemscope itemprop="blogPost">
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-  <div class="article-inner">
-    
-      <header class="article-header">
-	
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      使用git上传项目至github
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/03/19/梯度下降/" class="archive-article-date">
+  	<time datetime="2018-03-19T09:37:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/03/19/梯度下降/">梯度下降</a>
     </h1>
   
 
-        
-        <a href="/2017/07/30/使用git上传项目至github/" class="archive-article-date">
-  	<time datetime="2017-07-30T08:54:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用git上传项目至Gayhub？<br><a id="more"></a></p>
-<hr>
-<p><strong>1.在GitHub上建立项目</strong><br>建立一个Repository，记下.git地址</p>
-<p><strong>2.如果之前没有对git进行初始化配置</strong><br>如果刚刚安装git，需要先进行初始化配置</p>
-<pre><code>git config --global user.name &quot;YourName&quot;
-git config --global user.email &quot;you@email.address&quot;
-</code></pre><p>生成SSH密钥：</p>
-<pre><code>ssh-keygen -C &apos;your@email.address&apos; -t rsa
-</code></pre><p>找到你指定的目录，有id_rsa和id_rsa.pub两个文件<br>打开github，进入settings,选择SSH and GPG keys，新建SSH key,将id_rsa.pub里的全部内容复制进去</p>
-<p>输入命令<code>ssh -T git@github.com</code>检查一下<br><img src="http://chuantu.biz/t5/156/1501489701x2105037143.jpg" alt="ssh -T"></p>
-<p>完成后就可以开始上传了<br><strong>3.上传</strong><br>进入项目文件夹，右键git bash here<br>执行</p>
-<pre><code>git init
-git add .   (上传当前目录所有文件)
-git commit -m &quot;Test&quot;
-git remote add origin https://github.com/xxx/xxx.git
-git push origin master
-</code></pre><p><img src="http://chuantu.biz/t5/156/1501490268x2105037143.jpg" alt="git add"><br><img src="http://chuantu.biz/t5/156/1501490290x2105037143.jpg" alt="git commit"><br><img src="http://chuantu.biz/t5/156/1501490313x2105037143.jpg" alt="git push"><br>再去仓库看看，项目文件应该已经在里面了<br><img src="http://chuantu.biz/t5/156/1501490804x2105037143.jpg" alt="上传完成">    </p>
-<hr>
-<p><strong>错误解决</strong><br><strong>1. git remote add origin时发生fatal: remote origin already exists.</strong><br>执行</p>
-<pre><code>git remote rm origin
-</code></pre><p>再重新执行</p>
-<pre><code>git remote add origin
-</code></pre><p>应该就可以了。如果还是报错error: Could not remove config section ‘remote.origin’，需要修改gitconfig文件的内容。<br>找到安装路径下的etc/gitconfig文件，删除remote “origin”一行</p>
-<p><strong>2.ssh -T时发生Permission denied</strong><br>先输入<strong>ssh-agent</strong>，再输入<strong>ssh-add ~/.ssh/id_key</strong><br>如果还不行，检查下id_rsa那两个文件中有没有多于空行<br>或者重新生成SSH key</p>
-<hr>
-<p><strong>Gayhub真是一个水很深的地荒啊2333╮(╯▽╰)╭</strong><br><img src="http://chuantu.biz/t5/156/1501491161x2105037143.png" alt="gayhub"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://meanhui.github.io/2017/07/30/使用git上传项目至github/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/07/30/孔乙己/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          孔乙己C++版
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/07/28/title/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">新文章</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  	<!-- UY BEGIN -->
-		<div id="uyan_frame"></div>
-		<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2140216"></script>
-	<!-- UY END -->
-  
-  
-  
-<div style="font-size:10px;"><p>本文阅读<span id="busuanzi_value_page_pv"></span>次</p></div>
-  
+    
 
 
           </div>
@@ -374,8 +237,8 @@ git push origin master
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
